@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EvaluationRatingBar">
+        <attr name="starTotal" format="integer" />
+        <attr name="editable" format="boolean" />
+        <attr name="height" format="dimension" />
+        <attr name="intervalWidth" format="dimension" />
+        <attr name="selectedCount" format="integer" />
+        <attr name="starResId" format="reference" />
+    </declare-styleable>
+</resources>

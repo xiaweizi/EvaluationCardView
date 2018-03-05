@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiaweizi.evaluationcardview.MainActivity">
+
+    <com.xiaweizi.evaluationcardview.EvaluationRatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:editable="true"
+        app:height="50dp"
+        app:intervalWidth="5dp"
+        app:selectedCount="2"
+        app:starResId="@drawable/comment_ratingbar_selector"
+        app:starTotal="5" />
+
+    <com.xiaweizi.evaluationcardview.FlowTagLayout
+        android:id="@+id/tagLayout"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+</android.support.constraint.ConstraintLayout>
