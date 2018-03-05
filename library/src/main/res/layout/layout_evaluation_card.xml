@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.xiaweizi.evaluationcardview.EvaluationRatingBar
+    <com.xiaweizi.library.EvaluationRatingBar
         android:id="@+id/rating_bar_evaluation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,13 +45,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rating_bar_evaluation" />
 
-    <com.xiaweizi.evaluationcardview.NegativeReasonsLayout
+    <com.xiaweizi.library.NegativeReasonsLayout
         android:id="@+id/negative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_evaluation_description" />

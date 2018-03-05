@@ -1,4 +1,4 @@
-package com.xiaweizi.evaluationcardview;
+package com.xiaweizi.library;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,7 +20,7 @@ import java.util.List;
  * </pre>
  */
 
-public class EvaluationCardView{
+public class EvaluationCardView {
 
     private static final String TAG = "EvaluationCardView";
 
@@ -34,7 +34,7 @@ public class EvaluationCardView{
     private View mView;
     private String[] mDescriptions = new String[]{"非常不满意", "不满意，请积极改善", "一般，还需提升", "满意，服务不错", "非常满意，一百个赞"};
 
-    EvaluationCardView(Context context) {
+    public EvaluationCardView(Context context) {
         mContext = context;
         mAlertDialog = new AlertDialog.Builder(context).create();
         if (mAlertDialog.getWindow() != null) {

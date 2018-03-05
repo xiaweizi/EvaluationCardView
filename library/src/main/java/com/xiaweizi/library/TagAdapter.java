@@ -1,4 +1,4 @@
-package com.xiaweizi.evaluationcardview;
+package com.xiaweizi.library;
 
 import android.content.Context;
 import android.view.LayoutInflater;
