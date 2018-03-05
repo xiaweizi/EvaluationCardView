@@ -50,7 +50,7 @@ public class TagAdapter<T> extends BaseAdapter {
 
         View view = LayoutInflater.from(mContext).inflate(R.layout.tag_item, null);
 
-        TextView textView = (TextView) view.findViewById(R.id.tv_tag);
+        TextView textView = view.findViewById(R.id.tv_tag);
         T t = mDataList.get(position);
 
         if (t instanceof String) {

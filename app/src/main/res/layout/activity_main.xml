@@ -17,7 +17,7 @@
         app:starResId="@drawable/comment_ratingbar_selector"
         app:starTotal="5" />
 
-    <com.xiaweizi.evaluationcardview.FlowTagLayout
+    <com.xiaweizi.evaluationcardview.NegativeReasonsLayout
         android:id="@+id/tagLayout"
         android:layout_width="274dp"
         android:layout_height="wrap_content"

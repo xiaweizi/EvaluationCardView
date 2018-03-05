@@ -17,44 +17,33 @@ import java.util.List;
  *     class  : com.xiaweizi.evaluationcardview.FlowTagLayout
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/03/05
- *     desc   :
+ *     desc   : 自定义差评理由选择 view
  * </pre>
  */
 
-public class FlowTagLayout extends ViewGroup {
+public class  NegativeReasonsLayout extends ViewGroup {
 
-    private static final String TAG = FlowTagLayout.class.getSimpleName();
+    /** 检测数据变化的观察者 */
+    private AdapterDataSetObserver mDataSetObserver;
 
-    /**
-     * Should be used by subclasses to listen to changes in the dataset
-     */
-    AdapterDataSetObserver mDataSetObserver;
+    /** 适配器 */
+    private ListAdapter mAdapter;
 
-    /**
-     * The adapter containing the data to be displayed by this view
-     */
-    ListAdapter mAdapter;
+    /** 被选择的回调 */
+    private OnTagSelectListener mOnTagSelectListener;
 
-
-    /**
-     * the tag select event callback
-     */
-    OnTagSelectListener mOnTagSelectListener;
-
-    /**
-     * 存储选中的tag
-     */
+    /** 存储被选择的 view */
     private SparseBooleanArray mCheckedTagArray = new SparseBooleanArray();
 
-    public FlowTagLayout(Context context) {
+    public NegativeReasonsLayout(Context context) {
         super(context);
     }
 
-    public FlowTagLayout(Context context, AttributeSet attrs) {
+    public NegativeReasonsLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public FlowTagLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public NegativeReasonsLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -62,20 +51,20 @@ public class FlowTagLayout extends ViewGroup {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        //获取Padding
+        // 获取Padding
         // 获得它的父容器为它设置的测量模式和大小
         int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
         int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
         int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
         int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
 
-        //FlowLayout最终的宽度和高度值
+        // NegativeReasonsLayout 最终的宽度和高度值
         int resultWidth = 0;
         int resultHeight = 0;
 
         //测量时每一行的宽度
         int lineWidth = 0;
-        //测量时每一行的高度，加起来就是FlowLayout的高度
+        //测量时每一行的高度，加起来就是 NegativeReasonsLayout 的高度
         int lineHeight = 0;
 
         //遍历每个子元素
@@ -190,13 +179,10 @@ public class FlowTagLayout extends ViewGroup {
     private void reloadData() {
         removeAllViews();
 
-        boolean isSetted = false;
         for (int i = 0; i < mAdapter.getCount(); i++) {
             final int j = i;
             mCheckedTagArray.put(i, false);
             final View childView = mAdapter.getView(i, null, this);
-//            addView(childView,
-//              new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));//这个构造方法所然能使用但是编译器会报错
             addView(childView, new MarginLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)));
 
             if (mAdapter instanceof OnInitSelectedPosition) {
@@ -225,7 +211,7 @@ public class FlowTagLayout extends ViewGroup {
                                 list.add(k);
                             }
                         }
-                        mOnTagSelectListener.onItemSelect(FlowTagLayout.this, list);
+                        mOnTagSelectListener.onItemSelect(NegativeReasonsLayout.this, list);
                     }
                 }
             });
@@ -251,9 +237,9 @@ public class FlowTagLayout extends ViewGroup {
     }
 
     /**
-     * 像ListView、GridView一样使用FlowLayout
+     * 像ListView、GridView一样使用NegativeReasonsLayout
      *
-     * @param adapter
+     * @param adapter 适配器
      */
     public void
     setAdapter(ListAdapter adapter) {
@@ -273,7 +259,7 @@ public class FlowTagLayout extends ViewGroup {
 
 
     public interface OnTagSelectListener {
-        void onItemSelect(FlowTagLayout parent, List<Integer> selectedList);
+        void onItemSelect(NegativeReasonsLayout parent, List<Integer> selectedList);
     }
 
     public interface OnInitSelectedPosition {

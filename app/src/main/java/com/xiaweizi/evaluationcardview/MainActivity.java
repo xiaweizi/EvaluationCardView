@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FlowTagLayout tagLayout = findViewById(R.id.tagLayout);
+        NegativeReasonsLayout tagLayout = findViewById(R.id.tagLayout);
         tagAdapter = new TagAdapter(this);
         tagLayout.setAdapter(tagAdapter);
-        tagLayout.setOnTagSelectListener(new FlowTagLayout.OnTagSelectListener() {
+        tagLayout.setOnTagSelectListener(new NegativeReasonsLayout.OnTagSelectListener() {
             @Override
-            public void onItemSelect(FlowTagLayout parent, List<Integer> selectedList) {
+            public void onItemSelect(NegativeReasonsLayout parent, List<Integer> selectedList) {
                 if (selectedList != null && selectedList.size() > 0) {
                     StringBuilder sb = new StringBuilder();
                     for (int i : selectedList) {
@@ -55,5 +55,6 @@ public class MainActivity extends AppCompatActivity {
         dataSource.add("安卓");
         dataSource.add("安卓");
         dataSource.add("安卓11111");
+        tagAdapter.onlyAddAll(dataSource);
     }
 }

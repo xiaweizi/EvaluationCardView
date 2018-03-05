@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
  *     class  : com.xiaweizi.evaluationcardview.XLHRatingBar
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/03/05
- *     desc   :
+ *     desc   : 自定义客服评价 RatingBar
  * </pre>
  */
 
@@ -63,6 +63,7 @@ public class EvaluationRatingBar extends LinearLayout {
     }
 
     /**
+     * 设置展示星星的总数
      * @param starTotal 展示星星的总数
      */
     public void setStarTotal(int starTotal) {
@@ -74,6 +75,10 @@ public class EvaluationRatingBar extends LinearLayout {
         return mSelectedCount;
     }
 
+    /**
+     * 设置星星被选择的个数
+     * @param selectedCount 星星被选择的个数
+     */
     public void setSelectedCount(int selectedCount) {
         if (selectedCount > mStarTotal) {
             return;
@@ -89,11 +94,9 @@ public class EvaluationRatingBar extends LinearLayout {
             CheckBox cb = new CheckBox(getContext());
             LayoutParams layoutParams;
             if (mHeight == 0) {
-                layoutParams = new LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             } else {
-                layoutParams = new LayoutParams(
-                        (int) mHeight, (int) mHeight);
+                layoutParams = new LayoutParams((int) mHeight, (int) mHeight);
             }
 
             layoutParams.gravity = Gravity.CENTER_VERTICAL;
