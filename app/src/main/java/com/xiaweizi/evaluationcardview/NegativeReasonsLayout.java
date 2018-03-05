@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * <pre>
  *     author : xiaweizi
- *     class  : com.xiaweizi.evaluationcardview.FlowTagLayout
+ *     class  : com.xiaweizi.evaluationcardview.NegativeReasonsLayout
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/03/05
  *     desc   : 自定义差评理由选择 view
@@ -30,10 +30,10 @@ public class  NegativeReasonsLayout extends ViewGroup {
     private ListAdapter mAdapter;
 
     /** 被选择的回调 */
-    private OnTagSelectListener mOnTagSelectListener;
+    private OnReasonSelectListener mOnReasonSelectListener;
 
     /** 存储被选择的 view */
-    private SparseBooleanArray mCheckedTagArray = new SparseBooleanArray();
+    private SparseBooleanArray mCheckedReasonArray = new SparseBooleanArray();
 
     public NegativeReasonsLayout(Context context) {
         super(context);
@@ -181,14 +181,14 @@ public class  NegativeReasonsLayout extends ViewGroup {
 
         for (int i = 0; i < mAdapter.getCount(); i++) {
             final int j = i;
-            mCheckedTagArray.put(i, false);
+            mCheckedReasonArray.put(i, false);
             final View childView = mAdapter.getView(i, null, this);
             addView(childView, new MarginLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)));
 
             if (mAdapter instanceof OnInitSelectedPosition) {
                 boolean isSelected = ((OnInitSelectedPosition) mAdapter).isSelectedPosition(i);
                 if (isSelected) {
-                    mCheckedTagArray.put(i, true);
+                    mCheckedReasonArray.put(i, true);
                     childView.setSelected(true);
                 }
             }
@@ -196,22 +196,22 @@ public class  NegativeReasonsLayout extends ViewGroup {
             childView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mCheckedTagArray.get(j)) {
-                        mCheckedTagArray.put(j, false);
+                    if (mCheckedReasonArray.get(j)) {
+                        mCheckedReasonArray.put(j, false);
                         childView.setSelected(false);
                     } else {
-                        mCheckedTagArray.put(j, true);
+                        mCheckedReasonArray.put(j, true);
                         childView.setSelected(true);
                     }
                     //回调
-                    if (mOnTagSelectListener != null) {
+                    if (mOnReasonSelectListener != null) {
                         List<Integer> list = new ArrayList<>();
                         for (int k = 0; k < mAdapter.getCount(); k++) {
-                            if (mCheckedTagArray.get(k)) {
+                            if (mCheckedReasonArray.get(k)) {
                                 list.add(k);
                             }
                         }
-                        mOnTagSelectListener.onItemSelect(NegativeReasonsLayout.this, list);
+                        mOnReasonSelectListener.onItemSelect(NegativeReasonsLayout.this, list);
                     }
                 }
             });
@@ -221,19 +221,17 @@ public class  NegativeReasonsLayout extends ViewGroup {
     /**
      * 清除所有被选择的选项
      *
-     * @author https://github.com/wanyt
-     * @time 2016年11月13日16:07:23
      */
     public void clearAllOption() {
         for (int i = 0; i < mAdapter.getCount(); i++) {
-            if (mCheckedTagArray.get(i)) {
+            if (mCheckedReasonArray.get(i)) {
                 getChildAt(i).setSelected(false);
             }
         }
     }
 
-    public void setOnTagSelectListener(OnTagSelectListener onTagSelectListener) {
-        this.mOnTagSelectListener = onTagSelectListener;
+    public void setOnReasonSelectListener(OnReasonSelectListener onReasonSelectListener) {
+        this.mOnReasonSelectListener = onReasonSelectListener;
     }
 
     /**
@@ -258,7 +256,7 @@ public class  NegativeReasonsLayout extends ViewGroup {
     }
 
 
-    public interface OnTagSelectListener {
+    public interface OnReasonSelectListener {
         void onItemSelect(NegativeReasonsLayout parent, List<Integer> selectedList);
     }
 

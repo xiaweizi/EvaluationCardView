@@ -3,6 +3,7 @@ package com.xiaweizi.evaluationcardview;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         NegativeReasonsLayout tagLayout = findViewById(R.id.tagLayout);
         tagAdapter = new TagAdapter(this);
         tagLayout.setAdapter(tagAdapter);
-        tagLayout.setOnTagSelectListener(new NegativeReasonsLayout.OnTagSelectListener() {
+        tagLayout.setOnReasonSelectListener(new NegativeReasonsLayout.OnReasonSelectListener() {
             @Override
             public void onItemSelect(NegativeReasonsLayout parent, List<Integer> selectedList) {
                 if (selectedList != null && selectedList.size() > 0) {
@@ -56,5 +57,10 @@ public class MainActivity extends AppCompatActivity {
         dataSource.add("安卓");
         dataSource.add("安卓11111");
         tagAdapter.onlyAddAll(dataSource);
+    }
+
+    public void click(View view) {
+        EvaluationCardView cardView = new EvaluationCardView(this);
+        cardView.show();
     }
 }
