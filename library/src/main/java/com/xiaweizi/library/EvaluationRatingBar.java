@@ -111,7 +111,7 @@ public class EvaluationRatingBar extends LinearLayout {
             addView(cb, layoutParams);
             cb.setButtonDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
             if (mStarResId == -1) {
-                mStarResId = R.drawable.comment_ratingbar_selector;
+                mStarResId = R.drawable.selector_rating_bar_default;
             }
             cb.setBackgroundResource(mStarResId);
             if (i + 1 <= mSelectedCount) {

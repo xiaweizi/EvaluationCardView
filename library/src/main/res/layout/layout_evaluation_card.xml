@@ -30,7 +30,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:selectedCount="0"
-        app:starResId="@drawable/comment_ratingbar_selector"
+        app:starResId="@drawable/selector_rating_bar_default"
         app:starTotal="5" />
 
     <TextView
