@@ -45,7 +45,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rating_bar_evaluation" />
 
-    <com.xiaweizi.library.NegativeReasonsLayout
+    <com.xiaweizi.library.EvaluationNegReasonsLayout
         android:id="@+id/negative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

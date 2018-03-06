@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 /**
  * <pre>
  *     author : xiaweizi
- *     class  : com.xiaweizi.evaluationcardview.XLHRatingBar
+ *     class  : com.xiaweizi.library.EvaluationRatingBar
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/03/05
  *     desc   : 自定义客服评价 RatingBar

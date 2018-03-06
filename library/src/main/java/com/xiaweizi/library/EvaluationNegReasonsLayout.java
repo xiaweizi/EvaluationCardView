@@ -14,14 +14,14 @@ import java.util.List;
 /**
  * <pre>
  *     author : xiaweizi
- *     class  : com.xiaweizi.evaluationcardview.NegativeReasonsLayout
+ *     class  : com.xiaweizi.evaluationcardview.EvaluationNegReasonsLayout
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/03/05
  *     desc   : 自定义差评理由选择 view
  * </pre>
  */
 
-public class  NegativeReasonsLayout extends ViewGroup {
+public class EvaluationNegReasonsLayout extends ViewGroup {
 
     /** 检测数据变化的观察者 */
     private AdapterDataSetObserver mDataSetObserver;
@@ -35,15 +35,15 @@ public class  NegativeReasonsLayout extends ViewGroup {
     /** 存储被选择的 view */
     private SparseBooleanArray mCheckedReasonArray = new SparseBooleanArray();
 
-    public NegativeReasonsLayout(Context context) {
+    public EvaluationNegReasonsLayout(Context context) {
         super(context);
     }
 
-    public NegativeReasonsLayout(Context context, AttributeSet attrs) {
+    public EvaluationNegReasonsLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public NegativeReasonsLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public EvaluationNegReasonsLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -211,7 +211,7 @@ public class  NegativeReasonsLayout extends ViewGroup {
                                 list.add(k);
                             }
                         }
-                        mOnReasonSelectListener.onItemSelect(NegativeReasonsLayout.this, list);
+                        mOnReasonSelectListener.onItemSelect(EvaluationNegReasonsLayout.this, list);
                     }
                 }
             });
@@ -257,7 +257,7 @@ public class  NegativeReasonsLayout extends ViewGroup {
 
 
     public interface OnReasonSelectListener {
-        void onItemSelect(NegativeReasonsLayout parent, List<Integer> selectedList);
+        void onItemSelect(EvaluationNegReasonsLayout parent, List<Integer> selectedList);
     }
 
     public interface OnInitSelectedPosition {
