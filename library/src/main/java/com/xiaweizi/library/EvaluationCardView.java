@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class EvaluationCardView {
     private EvaluationRatingBar mRatingBar;
     private TextView mTvDescription;
     private EditText mEtOtherReason;
+    private Button mBtnCommit;
+    private MyAdapter mAdapter;
 
     public EvaluationCardView(Context context) {
         mContext = context;
@@ -44,9 +47,12 @@ public class EvaluationCardView {
         mRatingBar = view.findViewById(R.id.rating_bar_evaluation);
         mTvDescription = view.findViewById(R.id.tv_evaluation_description);
         mEtOtherReason = view.findViewById(R.id.et_other_reason);
+        mBtnCommit = view.findViewById(R.id.btn_commit);
+
         initReasonsLayout();
         initRatingBar();
         mAlertDialog.setView(view);
+        mAlertDialog.setCanceledOnTouchOutside(false);
     }
 
     /** 初始化 RatingBar */
@@ -67,14 +73,8 @@ public class EvaluationCardView {
 
     /** 初始化理由布局 */
     private void initReasonsLayout() {
-        MyAdapter adapter = new MyAdapter(mContext);
-        mReasonsLayout.setAdapter(adapter);
-        List<String> dataSource = new ArrayList<>();
-        dataSource.add("回复太慢");
-        dataSource.add("对业务不太了解");
-        dataSource.add("服务态度差");
-        dataSource.add("问题没有得到解决");
-        adapter.setData(dataSource);
+        mAdapter = new MyAdapter(mContext);
+        mReasonsLayout.setAdapter(mAdapter);
         mReasonsLayout.setOnReasonSelectListener(new EvaluationNegReasonsLayout.OnReasonSelectListener() {
             @Override
             public void onItemSelect(EvaluationNegReasonsLayout parent, List<Integer> selectedList) {
@@ -101,6 +101,12 @@ public class EvaluationCardView {
     public void dismiss() {
         if (mAlertDialog != null && mAlertDialog.isShowing()) {
             mAlertDialog.dismiss();
+        }
+    }
+
+    public void setReasonsData(List<String> reasonsData) {
+        if (reasonsData != null && mAdapter != null) {
+            mAdapter.setData(reasonsData);
         }
     }
 

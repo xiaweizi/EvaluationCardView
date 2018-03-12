@@ -3,6 +3,7 @@ package com.xiaweizi.library;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import java.util.List;
  */
 
 public class EvaluationNegReasonsLayout extends ViewGroup {
+
+    private static final String TAG = "EvaluationNegReas:";
 
     /** 检测数据变化的观察者 */
     private AdapterDataSetObserver mDataSetObserver;
@@ -103,10 +106,12 @@ public class EvaluationNegReasonsLayout extends ViewGroup {
                 resultHeight += lineHeight;
             }
 
-            setMeasuredDimension(modeWidth == MeasureSpec.EXACTLY ? sizeWidth : resultWidth,
-                    modeHeight == MeasureSpec.EXACTLY ? sizeHeight : resultHeight);
 
         }
+        Log.d(TAG, "onMeasure1: " + (modeWidth == MeasureSpec.EXACTLY ? sizeWidth : resultWidth));
+        Log.d(TAG, "onMeasure2: " + (modeHeight == MeasureSpec.EXACTLY ? sizeHeight : resultHeight));
+        setMeasuredDimension(modeWidth == MeasureSpec.EXACTLY ? sizeWidth : resultWidth,
+                modeHeight == MeasureSpec.EXACTLY ? sizeHeight : resultHeight);
 
     }
 
