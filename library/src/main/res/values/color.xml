@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="evaluation_tag_text_color_selected">#dfa51d</color>
+    <color name="evaluation_tag_text_color_press">#b98918</color>
+    <color name="evaluation_tag_text_color_default">#b1afaf</color>
+</resources>

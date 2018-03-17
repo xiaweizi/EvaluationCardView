@@ -2,16 +2,15 @@ package com.xiaweizi.library;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <pre>
@@ -32,9 +31,11 @@ public class EvaluationCardView {
     private EvaluationNegReasonsLayout mReasonsLayout;
     private EvaluationRatingBar mRatingBar;
     private TextView mTvDescription;
-    private EditText mEtOtherReason;
-    private Button mBtnCommit;
+    private TextView mTvCommit;
     private MyAdapter mAdapter;
+
+    private int mStarCount = 0;
+    private Set<String> mReasons = new HashSet<>();
 
     public EvaluationCardView(Context context) {
         mContext = context;
@@ -46,9 +47,15 @@ public class EvaluationCardView {
         mReasonsLayout = view.findViewById(R.id.negative_layout);
         mRatingBar = view.findViewById(R.id.rating_bar_evaluation);
         mTvDescription = view.findViewById(R.id.tv_evaluation_description);
-        mEtOtherReason = view.findViewById(R.id.et_other_reason);
-        mBtnCommit = view.findViewById(R.id.btn_commit);
-
+        mTvCommit = view.findViewById(R.id.tv_commit);
+        mTvCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCallback != null) {
+                    mCallback.onEvaluationCommitClick(mStarCount, mReasons);
+                }
+            }
+        });
         initReasonsLayout();
         initRatingBar();
         mAlertDialog.setView(view);
@@ -61,11 +68,11 @@ public class EvaluationCardView {
         mRatingBar.setOnRatingChangeListener(new EvaluationRatingBar.OnRatingChangeListener() {
             @Override
             public void onChange(int countSelected) {
+                mStarCount = countSelected;
                 mTvDescription.setVisibility(View.VISIBLE);
                 if (countSelected > 0 && countSelected <= descriptions.length) {
                     mTvDescription.setText(descriptions[countSelected - 1]);
                     mReasonsLayout.setVisibility(countSelected <= 3 ? View.VISIBLE : View.GONE);
-                    mEtOtherReason.setVisibility(countSelected <= 3 ? View.VISIBLE : View.GONE);
                 }
             }
         });
@@ -79,14 +86,11 @@ public class EvaluationCardView {
             @Override
             public void onItemSelect(EvaluationNegReasonsLayout parent, List<Integer> selectedList) {
                 if (selectedList != null && selectedList.size() > 0) {
-                    StringBuilder sb = new StringBuilder();
                     for (int i : selectedList) {
-                        sb.append(parent.getAdapter().getItem(i));
-                        sb.append(":");
+                        mReasons.add(mAdapter.getItem(i));
                     }
-                    Log.i(TAG, "移动研发:" + sb.toString());
                 }else{
-                    Log.i(TAG, "没有选择标签");
+                    mReasons.clear();
                 }
             }
         });
@@ -142,5 +146,15 @@ public class EvaluationCardView {
             mData = data;
             notifyDataSetChanged();
         }
+    }
+
+    private OnEvaluationCallback mCallback;
+
+    public void setOnEvaluationCallback(OnEvaluationCallback callback) {
+        this.mCallback = callback;
+    }
+
+    public interface OnEvaluationCallback {
+        void onEvaluationCommitClick(int starCount, Set<String> reasons);
     }
 }

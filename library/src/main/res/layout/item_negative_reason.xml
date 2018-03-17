@@ -11,6 +11,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_negative_reasons"
         android:paddingBottom="5dp"
+        android:textColor="@drawable/selector_reasons_tag"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="5dp"
