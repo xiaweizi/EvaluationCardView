@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EvaluationRatingBarActivity" />
+        <activity android:name=".EvaluationNegReasonLayoutActivity" />
+        <activity android:name=".EvaluationCardViewActivity"></activity>
     </application>
 
 </manifest>
