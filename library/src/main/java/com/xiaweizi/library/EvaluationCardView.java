@@ -85,6 +85,7 @@ public class EvaluationCardView {
         mReasonsLayout.setOnReasonSelectListener(new EvaluationNegReasonsLayout.OnReasonSelectListener() {
             @Override
             public void onItemSelect(EvaluationNegReasonsLayout parent, List<Integer> selectedList) {
+                mReasons.clear();
                 if (selectedList != null && selectedList.size() > 0) {
                     for (int i : selectedList) {
                         mReasons.add(mAdapter.getItem(i));
@@ -150,6 +151,9 @@ public class EvaluationCardView {
 
     private OnEvaluationCallback mCallback;
 
+    /**
+     * @param callback 评价的回调
+     */
     public void setOnEvaluationCallback(OnEvaluationCallback callback) {
         this.mCallback = callback;
     }

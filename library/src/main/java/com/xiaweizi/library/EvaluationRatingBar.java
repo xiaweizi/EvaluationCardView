@@ -42,7 +42,7 @@ public class EvaluationRatingBar extends LinearLayout {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.EvaluationRatingBar);
         mStarTotal = typedArray.getInt(R.styleable.EvaluationRatingBar_starTotal, 5);
         mSelectedCount = typedArray.getInt(R.styleable.EvaluationRatingBar_selectedCount, 0);
-        mEditable = typedArray.getBoolean(R.styleable.EvaluationRatingBar_editable, false);
+        mEditable = typedArray.getBoolean(R.styleable.EvaluationRatingBar_editable, true);
         mHeight = typedArray.getDimension(R.styleable.EvaluationRatingBar_height, dp2Px(context, 0));
         mIntervalWidth = typedArray.getDimension(R.styleable.EvaluationRatingBar_intervalWidth, dp2Px(context, 0));
         mStarResId = typedArray.getResourceId(R.styleable.EvaluationRatingBar_starResId, -1);

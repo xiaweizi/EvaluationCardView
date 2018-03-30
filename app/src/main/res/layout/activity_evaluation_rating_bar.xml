@@ -8,34 +8,26 @@
     tools:layout_editor_absoluteY="81dp">
 
     <com.xiaweizi.library.EvaluationRatingBar
-        android:id="@+id/evaluationRatingBar2"
-        android:layout_width="384dp"
+        android:id="@+id/rating_bar_evaluation"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="328dp" />
+        app:height="30dp"
+        app:intervalWidth="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.xiaweizi.library.EvaluationRatingBar
-        android:id="@+id/evaluationRatingBar"
-        android:layout_width="384dp"
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:layout_editor_absoluteY="232dp" />
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        android:textColor="@color/evaluation_tag_text_color_selected"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating_bar_evaluation" />
 
-    <com.xiaweizi.library.EvaluationRatingBar
-        android:id="@+id/evaluationRatingBar"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="280dp" />
-
-    <com.xiaweizi.library.EvaluationRatingBar
-        android:id="@+id/evaluationRatingBar"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="184dp" />
 
 </android.support.constraint.ConstraintLayout>
