@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xiaweizi.library.EvaluationRatingBar;
+
+import es.dmoral.toasty.Toasty;
 
 public class EvaluationRatingBarActivity extends AppCompatActivity {
 
@@ -30,6 +33,7 @@ public class EvaluationRatingBarActivity extends AppCompatActivity {
                if (electedCount > 0 && electedCount <= mDescriptions.length) {
                    mTvDes.setText(mDescriptions[electedCount-1]);
                }
+                Toasty.info(EvaluationRatingBarActivity.this, "starCount:\t" + electedCount, Toast.LENGTH_SHORT, false).show();
             }
         });
     }
