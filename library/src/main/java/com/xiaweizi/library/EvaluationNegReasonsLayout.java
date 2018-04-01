@@ -117,9 +117,7 @@ public class EvaluationNegReasonsLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
-        int flowWidth = getWidth();
-
+        int realWidht = getWidth();
         int childLeft = 0;
         int childTop = 0;
 
@@ -139,7 +137,7 @@ public class EvaluationNegReasonsLayout extends ViewGroup {
             //因为子View可能设置margin，这里要加上margin的距离
             MarginLayoutParams mlp = (MarginLayoutParams) childView.getLayoutParams();
 
-            if (childLeft + mlp.leftMargin + childWidth + mlp.rightMargin > flowWidth) {
+            if (childLeft + mlp.leftMargin + childWidth + mlp.rightMargin > realWidht) {
                 //换行处理
                 childTop += (mlp.topMargin + childHeight + mlp.bottomMargin);
                 childLeft = 0;
@@ -150,7 +148,6 @@ public class EvaluationNegReasonsLayout extends ViewGroup {
             int right = childLeft + mlp.leftMargin + childWidth;
             int bottom = childTop + mlp.topMargin + childHeight;
             childView.layout(left, top, right, bottom);
-
             childLeft += (mlp.leftMargin + childWidth + mlp.rightMargin);
         }
     }

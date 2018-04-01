@@ -2,6 +2,7 @@ package com.xiaweizi.evaluationcardview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.xiaweizi.library.EvaluationCardView;
@@ -18,7 +19,6 @@ public class EvaluationCardViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluation_card_view);
-        click();
     }
 
     public void click() {
@@ -35,10 +35,14 @@ public class EvaluationCardViewActivity extends AppCompatActivity {
             public void onEvaluationCommitClick(int starCount, Set<String> reasons) {
                 StringBuilder sb = new StringBuilder();
                 for (String reason : reasons) {
-                    sb.append(reason + "\n");
+                    sb.append("\n").append(reason);
                 }
-                Toasty.info(EvaluationCardViewActivity.this, "星星数量：" + starCount + "\n差评理由：" + sb.toString(), Toast.LENGTH_LONG, false).show();
+                Toasty.success(EvaluationCardViewActivity.this, "评价成功\n" + "星星数量：" + starCount + "\n差评理由：" + sb.toString(), Toast.LENGTH_LONG, true).show();
             }
         });
+    }
+
+    public void evaluate(View view) {
+        click();
     }
 }
