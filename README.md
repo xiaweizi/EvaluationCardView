@@ -2,7 +2,7 @@
 
 ## 前言
 
-这个版本主要的任务就是完成**环信客服**系统的集成，上一篇文章 [仿IOS下载View](http://xiaweizi.cn/article/5d77/) 也是这个版本开发需求中的一小部分，那今天介绍一下另一个小需求 **客服好评**。 **客服好评** 的功能在于用户对客服服务态度和质量的评价，也是作为考核客服服务的标准。相关代码已上传 [EvaluationCardView](https://github.com/xiaweizi/EvaluationCardView)
+这个版本主要的任务就是完成 **环信客服**系统的集成，上一篇文章 [仿IOS下载View](http://xiaweizi.cn/article/5d77/) 也是这个版本开发需求中的一小部分，那今天介绍一下另一个小需求 **客服好评**。 **客服好评** 的功能在于用户对客服服务态度和质量的评价，也是作为考核客服服务的标准。相关代码已上传 [EvaluationCardView](https://github.com/xiaweizi/EvaluationCardView)
 
 <!-- more -->
 
