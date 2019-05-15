@@ -8,7 +8,7 @@
 
 看一下预览效果：
 
-![整体预览](http://owj4ejy7m.bkt.clouddn.com/2018-03-31-%E6%95%B4%E4%BD%93%E9%A2%84%E8%A7%88.gif)
+![整体预览](http://xiaweizi.top/2018-03-31-%E6%95%B4%E4%BD%93%E9%A2%84%E8%A7%88.gif)
 
 > 需求简要说明
 >
@@ -19,7 +19,7 @@
 
 我将分为3部分进行介绍 。
 
-![介绍](http://owj4ejy7m.bkt.clouddn.com/2018-03-31-image-201803311622551.png)
+![介绍](http://xiaweizi.top/2018-03-31-image-201803311622551.png)
 
 1. 评级的 `RatingBar`
 2. 差评理由 `TagView`
@@ -91,7 +91,7 @@ if (mOnRatingChangeListener != null) {
 
 最后的效果：
 
-![EvaluationRatingBar](http://owj4ejy7m.bkt.clouddn.com/2018-03-31-ratingBar.gif)
+![EvaluationRatingBar](http://xiaweizi.top/2018-03-31-ratingBar.gif)
 
 ## EvaluationNegReasonsLayout
 
@@ -188,7 +188,7 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
 来看一下最终的效果：
 
-![reasonsLayout](http://owj4ejy7m.bkt.clouddn.com/2018-03-31-ReasonLayout.gif)
+![reasonsLayout](http://xiaweizi.top/2018-03-31-ReasonLayout.gif)
 
 ## EvaluationCardView
 
